@@ -33,8 +33,10 @@ def getDates():
 	dictionaryOfTimes = linksWithTimes[linksWithTimes['Date Created'] != 'No Date Found']
 	dictionaryOfTimes['Date Created'] = pd.to_datetime(dictionaryOfTimes['Date Created'])
 
-	linksWithTimes['Date Created'] = linksWithTimes.merge(dictionaryOfTimes, on = 'Links', how = 'left')
+	dictionaryOfTimes.to_csv("TimeDictionary.csv")
 
-	linksWithTimes.to_csv("LinksWithTimes.csv")
+	#linksWithTimes['Date Created'] = linksWithTimes.merge(dictionaryOfTimes, on = 'Links', how = 'left')
+
+	#linksWithTimes.to_csv("LinksWithTimes.csv")
 
 getDates()

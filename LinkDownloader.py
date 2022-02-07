@@ -27,7 +27,7 @@ def waitFunction(driver, wait, text):
 		return False
 
 #Loads download settings
-tempDownload = lines[0]
+tempDownload = lines[0].replace('\n', '')
 
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
@@ -38,7 +38,7 @@ prefs = {"profile.default_content_settings.popups": 0,
 		"safebrowsing.enabled": True}
 options.add_experimental_option("prefs", prefs)
 options.headless = False
-driver = webdriver.Chrome(executable_path=lines[1], options = options)
+driver = webdriver.Chrome(executable_path=lines[1].replace('\n', ''), options = options)
 wait = WebDriverWait(driver, 5)
 
 def inputText(driver, link):
